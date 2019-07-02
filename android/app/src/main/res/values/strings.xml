@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">quicklists</string>
+    <string name="title_activity_main">quicklists</string>
+    <string name="package_name">com.prahaladbelavadi.ionicstarter</string>
+    <string name="fileprovider_authority">com.prahaladbelavadi.ionicstarter.fileprovider</string>
+    <string name="custom_url_scheme">com.prahaladbelavadi.ionicstarter</string>
+</resources>

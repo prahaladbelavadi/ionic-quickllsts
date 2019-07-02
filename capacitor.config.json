@@ -1,0 +1,7 @@
+{
+  "appId": "com.prahaladbelavadi.ionicstarter",
+  "appName": "quicklists",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
