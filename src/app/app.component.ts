@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-const { SplashScreen, StatusBar } = Plugins;
-
 import { Plugins } from '@capacitor/core';
+
+const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
   selector: 'app-root',
