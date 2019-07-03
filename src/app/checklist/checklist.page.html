@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Checklist</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title>Checklist title</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/checklists"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="addItem()">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-list lines="none">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label> Item title</ion-label>
+        <ion-checkbox [checked]="item.checked" (ionChange)="toggleitem(item)">
+        </ion-checkbox>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option expandable color="light" (click)="renameItem(item)">
+          <ion-icon slot="icon-only" name="clipboard"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option expandable color="danger" (click)="removeItem(item)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
