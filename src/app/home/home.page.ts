@@ -1,15 +1,31 @@
-import { Component } from '@angular/core';
-import { AlertController } from "@ionic/angular";
+import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController } from "@ionic/angular";
 import { ChecklistDataService } from "../services/checklist-data.service";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
 
-  constructor(public dataService: ChecklistDataService, private alertCtrl: AlertController) { }
+export class HomePage implements OnInit {
+
+  constructor(
+    public dataService: ChecklistDataService,
+    private alertCtrl: AlertController,
+    private storage: Storage,
+    private navCtrl: NavController
+  ) { }
+
+  ngOnInit() {
+    this.storage.get('introShown').then((result) => {
+      if (result == null) {
+        this.storage.set('introShown', true);
+        this.navCtrl.navigateRoot('/intro');
+      }
+    });
+  }
 
   addChecklist(): void {
     this.alertCtrl.create({
