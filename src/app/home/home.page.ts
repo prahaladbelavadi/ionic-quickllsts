@@ -62,7 +62,7 @@ export class HomePage {
   }
 
   removeChecklist(checklist): void {
-
+    this.dataService.removeChecklist(checklist);
   }
 
 }
