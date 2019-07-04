@@ -31,13 +31,34 @@ export class HomePage {
           }
         }
       ]
-    }).then((prompt)=>{
+    }).then((prompt) => {
       prompt.present();
     });
   }
 
   renameChecklist(checklist): void {
-
+    this.alertCtrl.create({
+      header: 'Rename Checklist',
+      message: 'Enter the new name of this checklist below',
+      inputs: [
+        {
+          type: 'text',
+          name: 'name'
+        }
+      ], buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: (data) => {
+            this.dataService.renameChecklist(checklist, data);
+          }
+        }
+      ]
+    }).then((prompt) => {
+      prompt.present();
+    })
   }
 
   removeChecklist(checklist): void {
