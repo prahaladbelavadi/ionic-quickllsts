@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="success">
     <ion-title>
       <img src="assets/shapes.svg" />
     </ion-title>
@@ -14,21 +14,23 @@
 
 <ion-content>
   <ion-list lines="none">
-    <ion-item-sliding>
-      <ion-item href="/checklists/123" routerDirectoin="forward">
-      <ion-label>
-        TITLE GOES HERE
-      </ion-label>
-    <span> 0 Items</span>
-    </ion-item>
-    <ion-item-options side="end">
-      <ion-item-option color="light" expandable (click)="renameChecklist(checklist)">
-        <ion-icon slot="icon-only" name="clipboard"></ion-icon>
-      </ion-item-option>
-      <ion-item-option color="danger" expandable (click)="removeChecklist(checklist)">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
+    <ion-item-sliding *ngFor="let checklist of dataService.checklists">
+      <ion-item [href]="'/checklists/'+ checklist.id" routerDirectoin="forward">
+        <ion-label>
+          {{checklist.title}}
+        </ion-label>
+        <span>
+          {{checklist.items.length}} items
+        </span>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="light" expandable (click)="renameChecklist(checklist)">
+          <ion-icon slot="icon-only" name="clipboard"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" expandable (click)="removeChecklist(checklist)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
